@@ -15,26 +15,53 @@ function getComputerChoice () {
     return choice
 }
 
-function playRound (computerSelection, playerSelection) {
+function game() {
 
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    let text;
-    
-    if (computerSelection == playerSelection) {
-        text = 'Its a draw!';
-        return text;
-    } else if ((computerSelection == 'Rock' && playerSelection == 'Scissors') || (computerSelection == 'Paper' && playerSelection == 'Rock') || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
-        text = 'Computer Wins!';
-        return text;
+    let computerScore = 0;
+    let userScore = 0;
+
+    for (let i=0; i < 5; i++) {
+
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt('Chose Rock, Paper or Scissors');
+
+        function playRound (computerSelection, playerSelection) {
+
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+            let text;
+            
+            if (computerSelection == playerSelection) {
+                text = 'Its a draw!';
+                return text;
+            } else if ((computerSelection == 'Rock' && playerSelection == 'Scissors') || (computerSelection == 'Paper' && playerSelection == 'Rock') || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
+                computerScore++;
+                text = 'Computer wins the round!';
+                return text;
+            } else {
+                userScore++;
+                text = 'Player wins the round!';
+                return text;
+            }
+        
+        }
+        
+        console.log('Computer: ' + computerScore + ' ' + 'User: ' + userScore);
+        console.log(computerSelection + ' vs ' + playerSelection);
+        console.log(playRound(computerSelection, playerSelection));
+        console.log('');
+    }
+
+    if (computerScore > userScore) {
+        let text = 'Computer Won the game!';
+        console.log(text);
+    } else if (userScore > computerScore) {
+        let text = 'User Won the Game!';
+        console.log(text);
     } else {
-        text = 'Player Wins!';
-        return text;
+        let text = 'It is a Tie';
+        console.log(text);
     }
 
 }
 
-let computerSelection = getComputerChoice();
-let playerSelection = "Paper";
-
-console.log(computerSelection + ' vs ' + playerSelection);
-console.log(playRound(computerSelection, playerSelection));
+game()
