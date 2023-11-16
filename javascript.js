@@ -1,5 +1,5 @@
 
-function getComputerChoice () {
+/*function getComputerChoice () {
 
     let random = Math.ceil(Math.random()*3)
     let choice
@@ -13,7 +13,48 @@ function getComputerChoice () {
     }
 
     return choice
+}*/
+
+let playerSelection
+
+const rock = document.querySelector('#r');
+rock.addEventListener('click', () => {
+    playerSelection = 'Rock';
+    console.log(playerSelection);
+});
+
+const paper = document.querySelector('#p');
+paper.addEventListener('click', () => {
+    playerSelection = 'Paper';
+    console.log(playerSelection);
+});
+
+const scissors = document.querySelector('#s');
+scissors.addEventListener('click', () => {
+    playerSelection = 'Scissors';
+    console.log(playerSelection);
+});
+    
+
+
+
+/*function playRound (computerSelection, playerSelection) {
+    
+    if (computerSelection == playerSelection) {
+        text = 'Its a draw!';
+        return text;
+    } else if ((computerSelection == 'Rock' && playerSelection == 'Scissors') || (computerSelection == 'Paper' && playerSelection == 'Rock') || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
+        //++computerScore;
+        text = 'Computer wins the round!';
+        return text;
+    } else {
+        //++userScore;
+        text = 'Player wins the round!';
+        return text;
+    }
+
 }
+
 
 function game() {
 
@@ -34,11 +75,11 @@ function game() {
                 text = 'Its a draw!';
                 return text;
             } else if ((computerSelection == 'Rock' && playerSelection == 'Scissors') || (computerSelection == 'Paper' && playerSelection == 'Rock') || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
-                computerScore++;
+                ++computerScore;
                 text = 'Computer wins the round!';
                 return text;
             } else {
-                userScore++;
+                ++userScore;
                 text = 'Player wins the round!';
                 return text;
             }
@@ -55,7 +96,7 @@ function game() {
         let text = 'Computer Won the game!';
         console.log(text);
     } else if (userScore > computerScore) {
-        let text = 'User Won the Game!';
+        let text = 'Player Won the Game!';
         console.log(text);
     } else {
         let text = 'It is a Tie';
@@ -64,4 +105,4 @@ function game() {
 
 }
 
-game()
+game()*/
