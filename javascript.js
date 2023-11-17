@@ -1,5 +1,5 @@
 
-/*function getComputerChoice () {
+function getComputerChoice () {
 
     let random = Math.ceil(Math.random()*3)
     let choice
@@ -13,20 +13,22 @@
     }
 
     return choice
-}*/
+}
 
-let playerSelection
+let computerSelection = getComputerChoice();
+let playerSelection = '';
 
 const rock = document.querySelector('#r');
 rock.addEventListener('click', () => {
     playerSelection = 'Rock';
-    console.log(playerSelection);
+    playRound(computerSelection, playerSelection);
+    
 });
 
 const paper = document.querySelector('#p');
 paper.addEventListener('click', () => {
     playerSelection = 'Paper';
-    console.log(playerSelection);
+    playRound(computerSelection, playerSelection);
 });
 
 const scissors = document.querySelector('#s');
@@ -38,7 +40,7 @@ scissors.addEventListener('click', () => {
 
 
 
-/*function playRound (computerSelection, playerSelection) {
+function playRound (computerSelection, playerSelection) {
     
     if (computerSelection == playerSelection) {
         text = 'Its a draw!';
@@ -56,7 +58,7 @@ scissors.addEventListener('click', () => {
 }
 
 
-function game() {
+/*function game() {
 
     let computerScore = 0;
     let userScore = 0;
